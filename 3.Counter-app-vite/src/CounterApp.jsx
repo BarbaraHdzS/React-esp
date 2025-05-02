@@ -1,20 +1,26 @@
+import { useState } from "react"
 import PropTypes from "prop-types"
 
-//se define fuera de la funcion para que no se vuelva a crear cada vez que se renderiza el componente
-const handleAdd = (event) {
-    console.log(event);
-}
+
 
 
 export const CounterApp = ({value}) => {
+
+// el primer parametro se usa para poner el valor inicial del contador (estado inicial)
+//el segundo parametro es una funcion que se usa para actualizar el estado
+    const [counter, setCounter] = useState(0);
+
+    //esta funcion se usa para actualizar el estado del contador
+     const handleAdd = () => {
+        //le dice que el estado cambio, por lo que vuelve a renderizar el componente
+        setCounter(counter + 1);
+
+    }
+
     return (
         <>
             <h1>CounterApp</h1>
-            <h2>{value}</h2>
-{/* handleAdd es una funcion que se ejecuta cuando se hace click en el boton, y recibe el evento como parametro */}
-             {/* <button onClick={handleAdd}> */}
-
-             {/* se puede pasar una funcion como parametro, y se le puede pasar un segundo parametro, que es el valor que queremos que tenga la funcion al hacer click */}
+            <h2>{counter}</h2>
                 <button onClick={handleAdd}>
                 +1
              </button>
