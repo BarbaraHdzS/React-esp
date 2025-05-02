@@ -1,9 +1,6 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 
-
-
-
 export const CounterApp = ({value}) => {
 
 // el primer parametro se usa para poner el valor inicial del contador (estado inicial)
@@ -14,6 +11,7 @@ export const CounterApp = ({value}) => {
      const handleAdd = () => {
         //le dice que el estado cambio, por lo que vuelve a renderizar el componente
         setCounter(counter + 1);
+        //setCounter((c) => c + 1); //esta es otra forma de hacerlo, ya que el setCounter se ejecuta de forma asincrona y puede dar problemas si se usa el valor anterior
 
     }
 
