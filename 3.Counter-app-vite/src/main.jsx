@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { HelloWorldApp } from "./HelloWorldApp";
+import {FirstApp} from "./FirstApp";
 
 
     //renderizamos la funcion App en el id root
@@ -10,5 +11,6 @@ import { HelloWorldApp } from "./HelloWorldApp";
         <React.StrictMode>
             {/* renderizas la funcion de arriba  */}
             <HelloWorldApp />
+            <FirstApp />
         </React.StrictMode>
     );
