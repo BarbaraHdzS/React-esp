@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 //las propTypes son para definir el tipo de dato que se espera en las props
 
-    export const FirstApp = ({title, subTitle}) => {
+    export const FirstApp = ({
+        title, 
+        subTitle='No hay subtitulo',
+    }) => {
 
     return (
         <>
