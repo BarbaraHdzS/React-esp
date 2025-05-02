@@ -1,17 +1,19 @@
+import PropTypes from 'prop-types';
+//las propTypes son para definir el tipo de dato que se espera en las props
 
-
- //props es un objeto que contiene las propiedades que se le pasan al componente
- //Permite que del componente padre se le pasen propiedades al componente hijo
-// export const FirstApp = ({title='hola, soy Goku'}) es el titulo por defecto que se le pasa al componente
     export const FirstApp = ({title, subTitle}) => {
-
-    // console.log(title);
 
     return (
         <>
         <h1>{title}</h1>
-        <p>{subTitle +1}</p>
+        <p>{subTitle}</p>
         </>
-    );
+    )
 }
 
+//asi se definen las propTypes
+FirstApp.propTypes = {
+    //condiciones de las props
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.number.isRequired
+}
