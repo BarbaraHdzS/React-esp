@@ -1,25 +1,25 @@
 import PropTypes from 'prop-types';
+//las propTypes son para definir el tipo de dato que se espera en las props
 
-// Primero define la función sin exportarla
-function FirstApp({ title, subTitle }) {
-  return (
-    <>
-      <h1>{title}</h1>
-      <p>{subTitle}</p>
-    </>
-  );
+    export const FirstApp = ({title, subTitle}) => {
+
+    return (
+        <>
+        <h1>{title}</h1>
+        <p>{subTitle}</p>
+        </>
+    )
 }
 
-// Aplica los propTypes y defaultProps
+//asi se definen las propTypes
 FirstApp.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.number.isRequired,
-};
+    //condiciones de las props
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.number.isRequired
+}
 
+//los defaultProps son para definir un valor por defecto en caso de que no se le pase nada a la prop, y entran antes de las propTypes
 FirstApp.defaultProps = {
-  title: 'No hay título',
-  subTitle: 1234,
-};
-
-// Exporta al final
-export { FirstApp };
+    title: 'No hay titulo',
+    subTitle: 1234
+}
