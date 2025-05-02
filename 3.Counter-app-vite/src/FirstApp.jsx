@@ -1,13 +1,15 @@
 
-const newName = {
-    name: "Barbara",
-    lastName: "Hermosa"
-}
 
-export const FirstApp = () => {
+ //props es un objeto que contiene las propiedades que se le pasan al componente
+ //Permite que del componente padre se le pasen propiedades al componente hijo
+// export const FirstApp = ({title='hola, soy Goku'}) es el titulo por defecto que se le pasa al componente
+    export const FirstApp = ({title='hola, soy Goku'}) => {
+
+    // console.log(title);
+
     return (
         <>
-        <h1>{newName.name}{ newName.lastName}</h1>
+        <h1>{title}</h1>
         <p>Soy la mejor programadora</p>
         </>
     );
