@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { GiftExpertApp } from './GifExperrApp'
+import { GifExpertApp } from './GifExpertApp'
 
 
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <GiftExpertApp/>
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+  //punto de entrada, solo este 
+  <>
+    <GifExpertApp/>
+  </>
 )
