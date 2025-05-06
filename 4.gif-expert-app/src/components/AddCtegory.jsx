@@ -28,7 +28,8 @@ export const AddCategory = ({setCategories})=> {
 
     return (
         //el form reenvia el evento y recarga la pagina
-        <form onSubmit={(event => onSubmit(event))}>
+        //<form onSubmit={(event => onSubmit(event))}> //esto es lo mismo que el de abajo, pero se puede simplificar
+        <form onSubmit={onSubmit}>
         <input
             type="text"
             placeholder="Buscar Gif"
