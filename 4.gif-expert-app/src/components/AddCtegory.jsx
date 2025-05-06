@@ -15,10 +15,13 @@ export const AddCategory = ({setCategories})=> {
 
     const onSubmit = (event) => {
         event.preventDefault(); //esto es para que no se recargue la pagina al enviar el formulario
-        console.log(inputValue); //muetsra en la consola el valor que el usuario escribio 
+
+        if (inputValue.trim().length <= 1) return; //esto es para que no se agregue un valor vacio o con solo espacios
 //se necesita categories como callback para asegurarnos que siempre trabajamos con el estado mas reciente
 //setCategories[...categories, inputValue] //esto no es correcto porque categories no se actualiza
         setCategories(categories => [inputValue, ...categories])
+
+        setInputValue(''); //esto es para que el input se limpie al enviar el formulario
     
     }
 
