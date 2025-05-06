@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AddCategory } from "./components/AddCtegory";
 
 export const GifExpertApp = () => {
 //cuando quiero almacenar info y esa info debe cambiar el html, necesito un hook para cambiar el estado (useState)
@@ -19,15 +20,14 @@ console.log(categories);
         <h1>GifExpertApp</h1>
 
          {/* Input */}
-         <button onClick={onAddCategory}>Agregar</button>
-
+        <A/>
           {/* Listado de Gif */}
+          <button onClick={onAddCategory}>Agregar</button>
           <ol>
                 {/* aqui va cada categoria */}
             {categories.map((category) => {
                 return <li key={category}>{category}</li>
             })}
-            
         
           </ol>
                 {/* Gif Item */}
