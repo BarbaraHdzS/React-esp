@@ -20,7 +20,7 @@ console.log(categories);
         <h1>GifExpertApp</h1>
 
          {/* Input */}
-        <A/>
+        <AddCategory/>
           {/* Listado de Gif */}
           <button onClick={onAddCategory}>Agregar</button>
           <ol>
