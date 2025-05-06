@@ -4,7 +4,7 @@ import { GifGrid } from "./components/GifGrid";
 
 export const GifExpertApp = () => {
 
-const [categories, setCategories] = useState(['One Punch',  'Dragon Ball']);
+const [categories, setCategories] = useState(['One Punch']);
 
 //Es una función definida en el componente padre, que recibe la nueva categoría (newCategory) y la agrega al estado (como al array de categorías).
 //Aquí es donde realmente se actualiza el estado, es decir, se agrega la categoría nueva a la lista.
@@ -30,7 +30,7 @@ console.log(categories);
         //onNewCategory es una propiedad
         onNewCategory={(value) => onAddCategory(value)} //mi onNewCategpoy va a emitir el valor que yo quiero insertar
         />
-          <button onClick={onAddCategory}>Agregar</button>
+       
 
           {/* se tiene que crear un componente que sirva para agrupar los gifs por categoria */}
     
