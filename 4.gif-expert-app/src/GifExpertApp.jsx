@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
 
 export const GifExpertApp = () => {
 
@@ -29,17 +30,20 @@ console.log(categories);
         //onNewCategory es una propiedad
         onNewCategory={(value) => onAddCategory(value)} //mi onNewCategpoy va a emitir el valor que yo quiero insertar
         />
-
-          {/* Listado de Gif */}
           <button onClick={onAddCategory}>Agregar</button>
-          <ol>
-                {/* aqui va cada categoria */}
-            {categories.map((category) => {
-                return <li key={category}>{category}</li>
-            })}
+
+          {/* se tiene que crear un componente que sirva para agrupar los gifs por categoria */}
+    
+            {
+                //map recorre el array de categorias y por cada categoria crea un componenete GifGrid
+            categories.map((category) => (
+               <GifGrid key={category} 
+               // componentes no pueden acceder directamente a variables que no son suyas.
+               category={category}/> 
+            ))
+        }
         
-          </ol>
-                {/* Gif Item */}
+        
         </>
     )
 }
