@@ -20,7 +20,8 @@ console.log(categories);
         <h1>GifExpertApp</h1>
 
          {/* Input */}
-        <AddCategory/>
+         {/* se le pueden mandar propiedades a los componentes */}
+        <AddCategory setCategories={setCategories}/>
           {/* Listado de Gif */}
           <button onClick={onAddCategory}>Agregar</button>
           <ol>

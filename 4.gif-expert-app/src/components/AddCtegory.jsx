@@ -1,6 +1,7 @@
 import { useState } from "react"
 
-export const AddCategory = ()=> {
+//debes llamar a setCategories como prop para poder usarlo en el componente
+export const AddCategory = ({setCategories})=> {
     //cada componente tiene su propio estado, no se puede compartir el estado entre componentes
 
     const [inputValue, setInputValue] = useState('Barbie');
@@ -15,6 +16,9 @@ export const AddCategory = ()=> {
     const onSubmit = (event) => {
         event.preventDefault(); //esto es para que no se recargue la pagina al enviar el formulario
         console.log(inputValue); //muetsra en la consola el valor que el usuario escribio 
+//se necesita categories como callback para asegurarnos que siempre trabajamos con el estado mas reciente
+//setCategories[...categories, inputValue] //esto no es correcto porque categories no se actualiza
+        setCategories(categories => [inputValue, ...categories])
     
     }
 
