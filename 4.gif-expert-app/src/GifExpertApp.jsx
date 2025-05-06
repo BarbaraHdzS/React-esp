@@ -8,7 +8,9 @@ const [categories, setCategories] = useState(['One Punch',  'Dragon Ball']);
 //Es una función definida en el componente padre, que recibe la nueva categoría (newCategory) y la agrega al estado (como al array de categorías).
 //Aquí es donde realmente se actualiza el estado, es decir, se agrega la categoría nueva a la lista.
 const onAddCategory = (newCateggory)=> {
-//console.log(newCateggory);
+
+    if(categories.includes(newCateggory)) return; //si ya existe la categoria no la agrego
+
     setCategories([...categories,newCateggory]) 
 
 }
