@@ -1,14 +1,15 @@
 import { useState } from "react"
-import { AddCategory } from "./components/AddCtegory";
+import { AddCategory } from "./components/AddCategory";
 
 export const GifExpertApp = () => {
-//cuando quiero almacenar info y esa info debe cambiar el html, necesito un hook para cambiar el estado (useState)
-//es necesairo poner un valor inicial porque el hook no sabe que valor va a tener
+
 const [categories, setCategories] = useState(['One Punch',  'Dragon Ball']);
 
-const onAddCategory = ()=> {
-    //categories.push('Barbie') //no se puede hacer esto porque no se actualiza el estado, no se renderiza el html
-    setCategories([...categories,'Barbie']) //esto si se puede hacer porque setCategories es una funcion que actualiza el estado y renderiza el html
+//Es una función definida en el componente padre, que recibe la nueva categoría (newCategory) y la agrega al estado (como al array de categorías).
+//Aquí es donde realmente se actualiza el estado, es decir, se agrega la categoría nueva a la lista.
+const onAddCategory = (newCateggory)=> {
+//console.log(newCateggory);
+    setCategories([...categories,newCateggory]) 
 
 }
 
@@ -20,8 +21,13 @@ console.log(categories);
         <h1>GifExpertApp</h1>
 
          {/* Input */}
-         {/* se le pueden mandar propiedades a los componentes */}
-        <AddCategory setCategories={setCategories}/>
+         {/* Lo ideal es que mi componente AddCategory lo unico que haga es emitir el valor que yo quiero insertar  */}
+        <AddCategory 
+        //setCategories={setCategories}
+        //onNewCategory es una propiedad
+        onNewCategory={(value) => onAddCategory(value)} //mi onNewCategpoy va a emitir el valor que yo quiero insertar
+        />
+
           {/* Listado de Gif */}
           <button onClick={onAddCategory}>Agregar</button>
           <ol>
