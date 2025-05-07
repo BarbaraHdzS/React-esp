@@ -1,11 +1,11 @@
 
 
-export const GiftItem = () => {
+export const GiftItem = (props) => {
+
+    console.log(props)
   return (
-    <div>
-    {images.map(({id, title}) => (
-        <GiftItem key={id}/>
-    ))}
+  <div>
+    GiftItem
     </div>
   )
 }
