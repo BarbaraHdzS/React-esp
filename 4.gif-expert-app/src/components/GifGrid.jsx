@@ -1,20 +1,6 @@
-//Es el componente que recibe la categoría como prop y la muestra en un título 
-const getGifs = async (category) => {
-    const url= `https://api.giphy.com/v1/gifs/search?api_key=q0lzDvGidGYfYL9dKj4vwasIoduM1vM8&q=${category}&limit=10`;
+import {getGifs} from '../helpers/getGifs';
 
-    const resp = await fetch(url);
-   
-    const {data} = await resp.json();
-  
-    const gifs = data.map(img => ({
-       id: img.id,
-        title: img.title,
-        url: img.images.downsized_medium.url
-    }))
-    console.log(gifs);
-    return gifs;
-}
-
+//en este caso se repetirá el mismo proceso para cada categoría que se pase al componente GifGrid
 export const GifGrid = ({category}) => {
 
 getGifs(category);
