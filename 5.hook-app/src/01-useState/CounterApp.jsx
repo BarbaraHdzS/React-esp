@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 
 export const CounterApp = () => {
 
-    const [counter, setCounter] = useState(10);
+    //puedes en lugar de inicializar el estado con un valor numerico, inicializarlo con un objeto o un arreglo
+    const [counter, setCounter] = useState({
+        counter: 10,
+        counter2: 20,
+        counter3: 30    
+        }    )
 
     return (
         <>
