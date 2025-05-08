@@ -25,15 +25,19 @@ export const SimpleForm = () => {
         });
     }
 
-
+//sirve para disparar efectos secundarios
+//la primera funcion del useEffect es el callback, este se ejecuta cada vez que la dependencia se disparada (cada vez que pasa esto, quiero que hagas esto)
     useEffect( () => {
         // console.log('useEffect called!');
-    }, []);
+    }, []);//si el arreglo es vacio, solo se ejecuta una sola vez
     
+    //se recomienda un useEffect por cada dependencia y efecto secundario que quieras
+    //si quiero disparar la funcion cuando el formulario cambia, le paso el formState como dependencia
     useEffect( () => {
         // console.log('formState changed!');
     }, [formState]);
 
+//solo se dispara cuando el email cambia
     useEffect( () => {
         // console.log('email changed!');
     }, [ email ]);
