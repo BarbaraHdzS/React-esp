@@ -32,7 +32,8 @@ getGifs(category);
     images.map((image) => (
         <GiftItem 
         key={image.id}
-        image={image}
+       //exparsir el objeto image para que se le pasen todas las propiedades al componente GiftItem
+       {...image}
         />
     ))
     }
