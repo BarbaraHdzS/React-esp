@@ -17,6 +17,9 @@ export const GifGrid = ({category}) => {
   return (
     <>
     <h3>{category}</h3>
+    {/* si isLoading es true, muestra el loading */}
+    {isLoading && (<h2>Cargando...</h2>)}
+
 
 {/* se necesita un componente que recorra el array de objetos y muestre la información de cada uno de ellos */}
     <div className='card-grid'>
