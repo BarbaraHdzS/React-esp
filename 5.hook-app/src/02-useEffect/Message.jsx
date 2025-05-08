@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 
+
 export const Message = () => {
-    
+    //podemos mostrar codigo cuando el componente se monta, se actualiza o se desmonta
+    //se desmonta para limpiar el efecto secundario
     const [coords, setCoords] = useState({ x: 0, y: 0});
 
+    
     useEffect(() => {
         
         const onMouseMove = ({ x, y }) => {
@@ -16,7 +19,7 @@ export const Message = () => {
       return () => {
         window.removeEventListener( 'mousemove', onMouseMove );
       }
-    }, []);
+    }, []); //solo se dispara una vez
     
 
 

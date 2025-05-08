@@ -42,7 +42,7 @@ export const SimpleForm = () => {
         // console.log('email changed!');
     }, [ email ]);
 
-    
+    //el useEffect cuanta con 3 partes, la primera es el callback(funcion de retorno), la segunda es el arreglo de dependencias y la tercera es la funcion de limpieza (cleanup function) que se ejecuta cuando el componente se cancela o se desmonta
 
     return (
         //crea un fromulario simple con dos inputs y un mensaje que aparece cuando el username es strider2
@@ -70,7 +70,7 @@ export const SimpleForm = () => {
                 onChange={ onInputChange }
             />
 
-
+{/* si el usuario es strider2, se muestra el mensaje */}
             {
                 (username === 'strider2' ) && <Message />
             }
