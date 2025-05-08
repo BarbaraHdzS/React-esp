@@ -1,0 +1,76 @@
+import { useEffect, useState } from 'react';
+import { Message } from './Message';
+
+
+export const SimpleForm = () => {
+
+//usamos este estado para cambiar el valor del formulario
+    const [formState, setFormState] = useState({
+        username: 'strider',
+        email: 'fernando@google.com'
+    });
+
+    //lo deconstruimos para usarlo en el return
+    const { username, email } = formState;
+
+    //me permite hacer el cambio del input
+    //el target que me esta disparando pasa como el primer argumento
+    const onInputChange = ({ target }) => {
+        const { name, value } = target;
+        setFormState({
+            //mantienes toda la infromacion del formulario
+            //y solo cambias el valor del input que se esta cambiando
+            ...formState,
+            [ name ]: value
+        });
+    }
+
+
+    useEffect( () => {
+        // console.log('useEffect called!');
+    }, []);
+    
+    useEffect( () => {
+        // console.log('formState changed!');
+    }, [formState]);
+
+    useEffect( () => {
+        // console.log('email changed!');
+    }, [ email ]);
+
+    
+
+    return (
+        //crea un fromulario simple con dos inputs y un mensaje que aparece cuando el username es strider2
+        <>
+            <h1>Formulario Simple</h1> 
+            <hr />
+
+            <input 
+            // el value se actualiza con el estado del formulario
+            //el onChange se encarga de cambiar el valor del input
+                type="text" 
+                className="form-control"
+                placeholder="Username"
+                name="username"
+                value={ username }
+                onChange={ onInputChange }
+            />
+
+            <input 
+                type="email" 
+                className="form-control mt-2"
+                placeholder="fernando@google.com"
+                name="email"
+                value={ email }
+                onChange={ onInputChange }
+            />
+
+
+            {
+                (username === 'strider2' ) && <Message />
+            }
+
+        </>
+    )
+}
