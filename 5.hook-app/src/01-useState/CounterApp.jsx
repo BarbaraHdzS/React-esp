@@ -4,7 +4,7 @@ export const CounterApp = () => {
 
     //puedes en lugar de inicializar el estado con un valor numerico, inicializarlo con un objeto o un arreglo
     //el counter ahora es un objeto que tiene 3 counters
-    //destructuramos el objeto para obtener los valores de cada uno de los counters
+    //destructuramos el objeto para obtener los valores de cada uno de los counters (counters es propiedad)
     const [{counter1, counter2, counter3}, setCounter] = useState({
         counter1: 10,
         counter2: 20,
