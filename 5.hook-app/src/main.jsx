@@ -5,14 +5,16 @@ import './index.css';
 // import { HooksApp } from "./HooksApp";
 // import { CounterWithCustomHook } from "./01-useState/CounterWithCustomHook";
 // import { CounterApp } from "./01-useState/CounterApp";
-import { FormWithCustomHook } from "./02-useEffect/FormWithCustomHook";
-import { SimpleForm } from "./02-useEffect/SimpleForm";
+// import { FormWithCustomHook } from "./02-useEffect/FormWithCustomHook";
+// import { SimpleForm } from "./02-useEffect/SimpleForm";
+import { MultipleCustomHooks } from "./03-examples";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         {/* <HooksApp/> */}
         {/* <CounterApp/> */}
-        <FormWithCustomHook/>
+        {/* <FormWithCustomHook/> */}
         {/* <SimpleForm/> */}
+        <MultipleCustomHooks/>
     </React.StrictMode>
 )

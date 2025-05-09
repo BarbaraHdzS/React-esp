@@ -10,7 +10,7 @@ export const FormWithCustomHook = () => {
     //objeto que quiero que tenga el formulario
 
     //aqui es donde vamos a extarer el onReserForm
-    //
+    
     const { formState, onInputChange, onResetForm, username, email, password } = useForm({
         username: '',
         email: '',
