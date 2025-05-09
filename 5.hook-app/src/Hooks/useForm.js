@@ -16,6 +16,8 @@ export const useForm = ( initialForm = {} ) => {
         });
     }
 
+    //se hace un reset del formulario
+    //solo lo pones en el componente inicial
     const onResetForm = () => {
         setFormState( initialForm );
     }

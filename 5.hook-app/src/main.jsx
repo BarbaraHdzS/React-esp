@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         {/* <HooksApp/> */}
         {/* <CounterApp/> */}
-        {/* <CounterWithCustomHook/> */}
-        <SimpleForm/>
+        <FormWithCustomHook/>
+        {/* <SimpleForm/> */}
     </React.StrictMode>
 )
