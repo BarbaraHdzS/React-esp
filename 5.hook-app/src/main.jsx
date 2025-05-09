@@ -9,7 +9,8 @@ import './index.css';
 // import { SimpleForm } from "./02-useEffect/SimpleForm";
 // import { MultipleCustomHooks } from "./03-examples/MultipleCustomHooks";
 // import {FocusScreen} from "./04-useRef/FocusScreen";
-import { CallbackHook } from "./06-memos/CallbackHook";
+// import { CallbackHook } from "./06-memos/CallbackHook";
+import { Padre } from "./07-tarea-memo/Padre";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
@@ -20,7 +21,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* <MultipleCustomHooks/> */}
         {/* <CounterWithCustomHook/> */}
         {/* <FocusScreen/> */}
-        <CallbackHook/>
-  
+        {/* <CallbackHook/> */}
+        <Padre/>
+
     </React.StrictMode>
 )
