@@ -2,9 +2,12 @@ import { useEffect } from 'react';
 import { useForm } from '../Hooks/useForm';
 
 
-
+//custom hook que se llama useForm para no estar repitiendo el mismo código en todos los formularios
 export const FormWithCustomHook = () => {
 
+    //solo se queda la deconstructuracion de los valores que se van a usar en el formulario
+    //este recibe y muestra el valor del formulario y lo que se va a usar en el formulario
+    //objeto que quiero que tenga el formulario
     const { formState, onInputChange, onResetForm, username, email, password } = useForm({
         username: '',
         email: '',
