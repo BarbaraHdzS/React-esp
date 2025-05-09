@@ -17,7 +17,7 @@ export const CallbackHook = () => {
     //lo unico que hace es llamar al setCounter del padre y tomar el counter y sumarle el valor que le pasamos
     //funcino memorizada, para el componente es la misma funcion, pero en realidad es una funcion diferente, pero el componente no lo sabe, por eso no se vuelve a renderizar
     const incrementFather = useCallback(
-
+//esta funcion es la que se esta llamando en el hijo (increment( 5 );), por lo que vamos a recibir un argumento lo debemos recibir aqui
       (value) => {
         //manda a llamar al setCounter del padre y le pasa el valor que le pasamos
         //la funcion setCpunter sabe que va a tomar el valor actual del state y le va a sumar el valor que le pasamos
