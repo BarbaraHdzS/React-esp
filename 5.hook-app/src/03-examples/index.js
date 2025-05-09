@@ -1,4 +1,4 @@
 
-export * from './LoadingQuote';
+export * from './LoadingMessage.jsx';
 export * from './MultipleCustomHooks';
-export * from './Quote';
+export * from './PokemonCard.jsx';

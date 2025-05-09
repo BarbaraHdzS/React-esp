@@ -1,47 +1,104 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-// Custom Hook para realizar peticiones HTTP
+/**
+ * Cache local para almacenar resultados de peticiones previas
+ * Evita realizar peticiones repetidas a la misma URL
+ */
+const localCache = {};
 
+/**
+ * Custom Hook para realizar peticiones HTTP
+ * @param {string} url - URL a la que se realizará la petición
+ * @returns {Object} - Objeto con la data obtenida, estado de carga y errores
+ */
 export const useFetch = ( url ) => {
+  
+  // Estado inicial de la petición
+  const [state, setState] = useState({
+    data: null,           // Datos recibidos de la API
+    isLoading: true,      // Indicador de carga
+    hasError: false,      // Indicador de error
+    error: null,          // Detalles del error
+  });
 
+  // Efecto que se ejecuta cuando cambia la URL
+  useEffect(() => {
+    getFetch(); // Realiza la petición cuando cambia la URL
+  }, [url]);
 
-    //hacemos un useState para manejar el estado de la peticion, si es loading, si hay error, si hay data
-    const [state, setState] = useState({
-        data: null,
-        isLoading: true,
-        hasError: null,
-    })
+  /**
+   * Función para establecer el estado de carga
+   * Reinicia el estado cuando se va a realizar una nueva petición
+   */
+  const setLoadingState = () => {
+    setState({
+      data: null,
+      isLoading: true,
+      hasError: false,
+      error: null,
+    });
+  }
 
-//para hacerlo mas limpio, se hace el getFetch
+  /**
+   * Función asíncrona para realizar la petición HTTP
+   * Implementa manejo de caché, errores y actualización de estado
+   */
+  const getFetch = async() => {
 
-    const getFetch = async () => {
-
-        setState({
-            ...state,
-            isLoading: true,
-        });
-
-        const resp = await fetch(url);
-        const data = await resp.json();
-
-        setState({
-            data,
-            isLoading: false,
-            hasError: null,
-        });
+    // Si la URL ya está en caché, usa los datos guardados
+    if ( localCache[url] ) {
+      console.log('Usando caché');
+      setState({
+        data: localCache[url],
+        isLoading: false,
+        hasError: false,
+        error: null,
+      });
+      return;
     }
 
-//useEffect para llamar la peticion HTTP cuando el componente se monta o cuando cambia la url
-    useEffect(() => {
-        getFetch();
-    }, [url])
-    
+    // Establece estado de carga antes de realizar la petición
+    setLoadingState();
 
-//como no regresamos un jxs, se regresa un objeto
-    return {
-        //vamos a desestructurar el state y lo que regrese aqui es lo que puden regresar los componentes que lo llamen
-        data:      state.data,
-        isLoading: state.isLoading,
-        hasError:  state.hasError,
-    };
+    // Realiza la petición HTTP
+    const resp = await fetch(url);
+
+    // Simula un retraso de 1.5 segundos (para visualizar estados de carga)
+    await new Promise( resolve => setTimeout(resolve, 1500) );
+
+    // Manejo de errores en la respuesta
+    if ( !resp.ok ) {
+      setState({
+        data: null,
+        isLoading: false,
+        hasError: true,
+        error: {
+          code: resp.status,
+          message: resp.statusText,
+        }
+      });
+      return;
+    }
+  
+    // Obtiene los datos de la respuesta
+    const data = await resp.json();
+    
+    // Actualiza el estado con los datos obtenidos
+    setState({
+      data: data,
+      isLoading: false,
+      hasError: false,
+      error: null,
+    })
+
+    // Guarda los datos en caché para futuras peticiones
+    localCache[url] = data;
+  }
+  
+  // Devuelve solo los datos necesarios para el componente
+  return {
+    data: state.data,
+    isLoading: state.isLoading,
+    hasError: state.hasError,
+  }
 }
